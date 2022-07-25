@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const dbRouter = require('./routes/dbAccess')
 const pool = require('./db')
 
 var app = express();
@@ -25,7 +24,6 @@ app.use(bodyParser.urlencoded({extended : true}));
 // app.use(bodyParser.json());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/db', dbRouter);
 
 
 pool.connect((err, client, release) => {
